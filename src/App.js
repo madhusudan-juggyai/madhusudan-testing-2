@@ -1877,6 +1877,11 @@ function App() {
   const [user, setUser] = useState(null);
   const [authType, setAuthType] = useState('signup');
   const [showWelcomeModal, setShowWelcomeModal] = useState(false);
+  const [vapiInstance, setVapiInstance] = useState(null);
+  const [transcript, setTranscript] = useState('');
+  const [isCallActive, setIsCallActive] = useState(false);
+  const [callStartTime, setCallStartTime] = useState(null);
+  const [conversationId, setConversationId] = useState(null);
 
   const updateConversationData = async () => {
     try {
@@ -1888,6 +1893,19 @@ function App() {
       console.error('Error updating conversation data:', error);
     }
   };
+
+  useEffect(() => {
+    // Initialize vapiInstance
+    const initializeVapi = async () => {
+      try {
+        const instance = await import('./services/vapi');
+        setVapiInstance(instance);
+      } catch (error) {
+        console.error('Failed to initialize VAPI:', error);
+      }
+    };
+    initializeVapi();
+  }, []);
 
   useEffect(() => {
     if (conversationData) {
