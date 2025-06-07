@@ -1878,8 +1878,15 @@ function App() {
   const [authType, setAuthType] = useState('signup');
   const [showWelcomeModal, setShowWelcomeModal] = useState(false);
 
-  const updateConversationData = () => {
-    // Update conversation data logic here
+  const updateConversationData = async () => {
+    try {
+      if (vapiInstance && transcript) {
+        const response = await vapiInstance.analyzeConversation(transcript);
+        setConversationData(response);
+      }
+    } catch (error) {
+      console.error('Error updating conversation data:', error);
+    }
   };
 
   useEffect(() => {
