@@ -1861,7 +1861,7 @@ const VoiceConversation = ({ prompt, type, conversation, viewMode = false, user,
 
 // Main App Component
 function App() {
-  const [currentView, setCurrentView] = useState('landing');
+  const [currentView, setCurrentView] = useState('mock-interview-form');
   const [authType, setAuthType] = useState('signup');
   const [user, setUser] = useState(null);
   const [conversationData, setConversationData] = useState(null);
@@ -1902,6 +1902,9 @@ function App() {
         localStorage.removeItem('user');
         localStorage.removeItem('token');
       }
+    } else {
+      // If no user is logged in, show the mock interview form
+      setCurrentView('mock-interview-form');
     }
   }, []);
 
