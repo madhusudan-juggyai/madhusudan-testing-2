@@ -1,0 +1,12 @@
+build:
+  command: "npm install && npm run build"
+  directory: "build"
+
+environment:
+  node_version: "18"
+  environment_variables:
+    NODE_ENV: "production"
+
+publish:
+  directory: "build"
+  entry_point: "index.html"
