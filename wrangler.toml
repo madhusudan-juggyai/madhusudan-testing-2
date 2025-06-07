@@ -8,4 +8,4 @@ entry-point = "index.html"
 
 [build.environment]
 NODE_VERSION = "18"
-YARN_VERSION = "latest"
+YARN_VERSION = "1.22.19"
