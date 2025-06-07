@@ -1,5 +1,5 @@
 [build]
-command = "yarn install && yarn build"
+command = "npm install && npm run build"
 output_directory = "build"
 
 [site]
@@ -8,4 +8,3 @@ entry-point = "index.html"
 
 [build.environment]
 NODE_VERSION = "18"
-YARN_VERSION = "1.22.19"
