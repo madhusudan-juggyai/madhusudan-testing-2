@@ -1,5 +1,9 @@
 {
   "build_command": "npm install && npm run build",
   "build_output_directory": "build",
-  "root_directory": "/"
+  "root_directory": "/",
+  "environment": {
+    "NODE_VERSION": "18",
+    "NODE_ENV": "production"
+  }
 }
