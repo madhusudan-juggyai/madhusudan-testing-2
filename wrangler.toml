@@ -8,3 +8,6 @@ entry-point = "index.html"
 
 [build.environment]
 NODE_VERSION = "18"
+
+# Pages-specific configuration
+pages_build_output_dir = "build"
