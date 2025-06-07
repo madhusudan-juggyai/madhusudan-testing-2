@@ -1468,6 +1468,17 @@ const VoiceConversation = ({ prompt, type, conversation, viewMode = false, user,
     };
   }, [isCallActive, startTime]);
 
+  const updateConversationData = async () => {
+    try {
+      if (vapiInstance && transcript) {
+        const response = await vapiInstance.analyzeConversation(transcript);
+        setConversationData(response);
+      }
+    } catch (error) {
+      console.error('Error updating conversation data:', error);
+    }
+  };
+
   useEffect(() => {
     if (isCallActive) {
       const interval = setInterval(() => {
@@ -1479,7 +1490,7 @@ const VoiceConversation = ({ prompt, type, conversation, viewMode = false, user,
 
       return () => clearInterval(interval);
     }
-  }, [isCallActive, transcript, vapiInstance, callStartTime, conversationId, updateConversationData]);
+  }, [isCallActive, transcript, vapiInstance, callStartTime, conversationId]);
 
   // Load existing conversation for view mode
   useEffect(() => {
@@ -1883,16 +1894,7 @@ function App() {
   const [callStartTime, setCallStartTime] = useState(null);
   const [conversationId, setConversationId] = useState(null);
 
-  const updateConversationData = async () => {
-    try {
-      if (vapiInstance && transcript) {
-        const response = await vapiInstance.analyzeConversation(transcript);
-        setConversationData(response);
-      }
-    } catch (error) {
-      console.error('Error updating conversation data:', error);
-    }
-  };
+
 
   useEffect(() => {
     // Initialize vapiInstance
