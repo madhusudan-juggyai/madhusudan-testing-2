@@ -1479,7 +1479,7 @@ const VoiceConversation = ({ prompt, type, conversation, viewMode = false, user,
 
       return () => clearInterval(interval);
     }
-  }, [isCallActive, transcript, vapiInstance, callStartTime, conversationId]);
+  }, [isCallActive, transcript, vapiInstance, callStartTime, conversationId, updateConversationData]);
 
   // Load existing conversation for view mode
   useEffect(() => {
@@ -1874,6 +1874,13 @@ const VoiceConversation = ({ prompt, type, conversation, viewMode = false, user,
 function App() {
   const [currentView, setCurrentView] = useState('mock-interview-form');
   const [conversationData, setConversationData] = useState(null);
+  const [user, setUser] = useState(null);
+  const [authType, setAuthType] = useState('signup');
+  const [showWelcomeModal, setShowWelcomeModal] = useState(false);
+
+  const updateConversationData = () => {
+    // Update conversation data logic here
+  };
 
   useEffect(() => {
     if (conversationData) {
