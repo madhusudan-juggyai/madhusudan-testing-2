@@ -11,3 +11,8 @@ NODE_VERSION = "18"
 
 # Pages-specific configuration
 pages_build_output_dir = "build"
+
+# Build settings
+build_command = "npm install && npm run build"
+build_output_directory = "build"
+entry_point = "build/index.html"
