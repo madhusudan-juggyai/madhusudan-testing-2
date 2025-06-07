@@ -12,7 +12,17 @@ NODE_VERSION = "18"
 # Pages-specific configuration
 pages_build_output_dir = "build"
 
-# Build settings
+# Force build settings
 build_command = "npm install && npm run build"
 build_output_directory = "build"
 entry_point = "build/index.html"
+
+# Additional build settings
+build_directory = "build"
+entry_point_directory = "build"
+build_output_directory = "build"
+
+# Environment variables
+env = {
+  "NODE_ENV" = "production"
+}
