@@ -14,12 +14,6 @@ const ConversationSummary = ({ conversation, onBack, onStartNew }) => {
   // Calculate overall performance percentage
   const overallPerformance = Math.round((scores.overall / 10) * 100);
 
-  const getScoreColor = (score) => {
-    if (score >= 8) return 'from-green-400 to-green-600';
-    if (score >= 6) return 'from-yellow-400 to-yellow-600';
-    return 'from-red-400 to-red-600';
-  };
-
   const getPerformanceColor = (percentage) => {
     if (percentage >= 80) return 'text-green-600';
     if (percentage >= 60) return 'text-yellow-600';
@@ -33,8 +27,6 @@ const ConversationSummary = ({ conversation, onBack, onStartNew }) => {
     return 'Needs Improvement';
   };
 
-  const timeline = analysis.timeline || [];
-  const strengths = analysis.strengths || ['Good communication', 'Clear responses'];
   const improvements = analysis.improvements || ['More specific examples needed'];
   const recommendations = analysis.recommendations || ['Practice STAR method'];
 

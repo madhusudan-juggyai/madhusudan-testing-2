@@ -1468,6 +1468,19 @@ const VoiceConversation = ({ prompt, type, conversation, viewMode = false, user,
     };
   }, [isCallActive, startTime]);
 
+  useEffect(() => {
+    if (isCallActive) {
+      const interval = setInterval(() => {
+        if (transcript && vapiInstance) {
+          // Update conversation data
+          updateConversationData();
+        }
+      }, 5000);
+
+      return () => clearInterval(interval);
+    }
+  }, [isCallActive, transcript, vapiInstance, callStartTime, conversationId]);
+
   // Load existing conversation for view mode
   useEffect(() => {
     if (viewMode && conversation) {
@@ -1858,14 +1871,15 @@ const VoiceConversation = ({ prompt, type, conversation, viewMode = false, user,
     </div>
   );
 };
-
-// Main App Component
 function App() {
   const [currentView, setCurrentView] = useState('mock-interview-form');
-  const [authType, setAuthType] = useState('signup');
-  const [user, setUser] = useState(null);
   const [conversationData, setConversationData] = useState(null);
-  const [showWelcomeModal, setShowWelcomeModal] = useState(false);
+
+  useEffect(() => {
+    if (conversationData) {
+      // Summary is now handled directly in the UI
+    }
+  }, [conversationData]);
 
   useEffect(() => {
     // Check for payment status in URL
