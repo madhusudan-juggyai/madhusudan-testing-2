@@ -1,0 +1,5 @@
+{
+  "build_command": "npm install && npm run build",
+  "build_output_directory": "build",
+  "root_directory": "/"
+}
