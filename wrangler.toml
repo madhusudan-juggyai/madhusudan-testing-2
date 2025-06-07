@@ -1,0 +1,7 @@
+[build]
+command = "echo 'Building static site'"
+output = "./"
+
+[site]
+bucket = "./"
+entry-point = "index.html"
