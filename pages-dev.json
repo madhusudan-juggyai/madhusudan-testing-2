@@ -1,0 +1,20 @@
+{
+  "build": {
+    "command": "npm install && npm run build",
+    "directory": "build"
+  },
+  "framework": {
+    "name": "react",
+    "command": "npm install && npm run build",
+    "directory": "build"
+  },
+  "environment": {
+    "NODE_VERSION": "18",
+    "NODE_ENV": "production"
+  },
+  "entry-point": "build/index.html",
+  "output_directory": "build",
+  "build_command": "npm install && npm run build",
+  "build_output_directory": "build",
+  "pages_build_output_dir": "build"
+}
