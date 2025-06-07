@@ -1,7 +1,7 @@
 [build]
-command = "echo 'Building static site'"
-output = "./"
+command = "yarn install && yarn build"
+output = "build"
 
 [site]
-bucket = "./"
+bucket = "build"
 entry-point = "index.html"
